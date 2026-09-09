@@ -1,0 +1,96 @@
+name: Discord Release Announcement
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  announce:
+    name: Announce release on Discord
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send STREAMVANCE release announcement
+        shell: bash
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_RELEASE_WEBHOOK_URL }}
+          DISCORD_RELEASE_ROLE_ID: ${{ vars.DISCORD_RELEASE_ROLE_ID }}
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${DISCORD_WEBHOOK_URL:-}" ]; then
+            echo "Missing repository secret: DISCORD_RELEASE_WEBHOOK_URL"
+            exit 1
+          fi
+
+          if [ "$EVENT_NAME" = "release" ]; then
+            jq '.release' "$GITHUB_EVENT_PATH" > /tmp/release.json
+            TEST_PREFIX=""
+          else
+            curl -fsSL \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/$REPOSITORY/releases/latest" \
+              > /tmp/release.json
+            TEST_PREFIX="🧪 Test – "
+          fi
+
+          NAME=$(jq -r '.name // .tag_name' /tmp/release.json)
+          TAG=$(jq -r '.tag_name' /tmp/release.json)
+          URL=$(jq -r '.html_url' /tmp/release.json)
+          BODY=$(jq -r '.body // ""' /tmp/release.json | head -c 3200)
+          DOWNLOAD=$(jq -r '[.assets[]? | select(.name | test("\\.exe$"; "i"))][0].browser_download_url // .html_url' /tmp/release.json)
+          PUBLISHED_AT=$(jq -r '.published_at // empty' /tmp/release.json)
+          CHANNEL=$(jq -r 'if .prerelease then "Open Beta / Pre-Release" else "Stable Release" end' /tmp/release.json)
+
+          if [ -n "${DISCORD_RELEASE_ROLE_ID:-}" ]; then
+            CONTENT="<@&${DISCORD_RELEASE_ROLE_ID}>"
+            ALLOWED_MENTIONS=$(jq -n --arg id "$DISCORD_RELEASE_ROLE_ID" '{roles: [$id]}')
+          else
+            CONTENT=""
+            ALLOWED_MENTIONS='{"parse":[]}'
+          fi
+
+          jq -n \
+            --arg content "$CONTENT" \
+            --argjson allowed_mentions "$ALLOWED_MENTIONS" \
+            --arg title "🚀 ${TEST_PREFIX}${NAME}" \
+            --arg url "$URL" \
+            --arg description "$BODY" \
+            --arg tag "$TAG" \
+            --arg channel "$CHANNEL" \
+            --arg download "$DOWNLOAD" \
+            --arg timestamp "$PUBLISHED_AT" \
+            '{
+              username: "STREAMVANCE Releases",
+              content: $content,
+              allowed_mentions: $allowed_mentions,
+              embeds: [
+                {
+                  title: $title,
+                  url: $url,
+                  description: $description,
+                  color: 8141549,
+                  fields: [
+                    {name: "Version", value: $tag, inline: true},
+                    {name: "Release-Kanal", value: $channel, inline: true},
+                    {name: "Download", value: ("[Windows Installer herunterladen](" + $download + ")"), inline: false}
+                  ],
+                  footer: {text: "STREAMVANCE Studio • GitHub Release"},
+                  timestamp: $timestamp
+                }
+              ]
+            }' > /tmp/discord-payload.json
+
+          curl -fsS \
+            -H "Content-Type: application/json" \
+            -d @/tmp/discord-payload.json \
+            "$DISCORD_WEBHOOK_URL"
