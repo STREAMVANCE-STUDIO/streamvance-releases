@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "channel": "beta",
-  "version": "0.7.79",
-  "publishedAt": "2026-10-10T18:37:45.706Z",
+  "version": "0.7.80",
+  "publishedAt": "2026-11-01T13:06:34Z",
   "mandatory": false,
-  "notes": "STREAMVANCE Studio 0.7.79 Open Beta",
-  "releasePageUrl": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/tag/v0.7.79",
+  "notes": "STREAMVANCE Studio 0.7.80 Open Beta – Twitch Data Deletion & Live Reconnect",
+  "releasePageUrl": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/tag/v0.7.80",
   "artifact": {
     "platform": "win32",
     "arch": "x64",
-    "url": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/download/v0.7.79/STREAMVANCE-Studio-Setup-0.7.79.exe",
-    "sha256": "49c3112a64e038e1faeab0102f94fd18ab603b489399ddcc13bd9d7006c4d98e",
-    "sizeBytes": 100896719
+    "url": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/download/v0.7.80/STREAMVANCE-Studio-Setup-0.7.80.exe",
+    "sha256": "5f3d33bb0d2ddbf080dfa0a45de8a3d3b2e178cafc4399611264d66e45b5d0fe",
+    "sizeBytes": 100901045
   }
 }
