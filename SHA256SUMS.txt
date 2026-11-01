@@ -1,1 +1,1 @@
-5f3d33bb0d2ddbf080dfa0a45de8a3d3b2e178cafc4399611264d66e45b5d0fe  STREAMVANCE-Studio-Setup-0.7.80.exe
+bf34df4e76ab43d5cf2a1575a07a4974c14fc9c4ba76f73348dba7ad43a05c94  STREAMVANCE-Studio-Setup-0.7.81.exe

@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "channel": "beta",
-  "version": "0.7.80",
-  "publishedAt": "2026-11-01T13:06:34Z",
+  "version": "0.7.81",
+  "publishedAt": "2026-11-01T13:47:22Z",
   "mandatory": false,
-  "notes": "STREAMVANCE Studio 0.7.80 Open Beta – Twitch Data Deletion & Live Reconnect",
-  "releasePageUrl": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/tag/v0.7.80",
+  "notes": "STREAMVANCE Studio 0.7.81 Open Beta – Windows Updater IPC Hotfix",
+  "releasePageUrl": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/tag/v0.7.81",
   "artifact": {
     "platform": "win32",
     "arch": "x64",
-    "url": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/download/v0.7.80/STREAMVANCE-Studio-Setup-0.7.80.exe",
-    "sha256": "5f3d33bb0d2ddbf080dfa0a45de8a3d3b2e178cafc4399611264d66e45b5d0fe",
-    "sizeBytes": 100901045
+    "url": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/download/v0.7.81/STREAMVANCE-Studio-Setup-0.7.81.exe",
+    "sha256": "bf34df4e76ab43d5cf2a1575a07a4974c14fc9c4ba76f73348dba7ad43a05c94",
+    "sizeBytes": 100901465
   }
 }
