@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "channel": "beta",
-  "version": "0.7.81",
-  "publishedAt": "2026-11-01T13:47:22Z",
+  "version": "0.7.82",
+  "publishedAt": "2026-11-15T11:44:51Z",
   "mandatory": false,
-  "notes": "STREAMVANCE Studio 0.7.81 Open Beta – Windows Updater IPC Hotfix",
-  "releasePageUrl": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/tag/v0.7.81",
+  "notes": "STREAMVANCE Studio 0.7.82 Open Beta – Promo Slider & Live Preview",
+  "releasePageUrl": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/tag/v0.7.82",
   "artifact": {
     "platform": "win32",
     "arch": "x64",
-    "url": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/download/v0.7.81/STREAMVANCE-Studio-Setup-0.7.81.exe",
-    "sha256": "bf34df4e76ab43d5cf2a1575a07a4974c14fc9c4ba76f73348dba7ad43a05c94",
-    "sizeBytes": 100901465
+    "url": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/download/v0.7.82/STREAMVANCE-Studio-Setup-0.7.82.exe",
+    "sha256": "669da5468d69a6651ae989fc7331b9c774accd8394c804cf7fdfedfea5c34590",
+    "sizeBytes": 100914104
   }
 }
