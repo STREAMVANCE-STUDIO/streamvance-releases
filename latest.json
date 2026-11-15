@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "channel": "beta",
-  "version": "0.7.82",
-  "publishedAt": "2026-11-15T11:44:51Z",
+  "version": "0.7.83",
+  "publishedAt": "2026-11-15T12:35:55Z",
   "mandatory": false,
-  "notes": "STREAMVANCE Studio 0.7.82 Open Beta – Promo Slider & Live Preview",
-  "releasePageUrl": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/tag/v0.7.82",
+  "notes": "STREAMVANCE Studio 0.7.83 Open Beta – Updater Handoff Hotfix",
+  "releasePageUrl": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/tag/v0.7.83",
   "artifact": {
     "platform": "win32",
     "arch": "x64",
-    "url": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/download/v0.7.82/STREAMVANCE-Studio-Setup-0.7.82.exe",
-    "sha256": "669da5468d69a6651ae989fc7331b9c774accd8394c804cf7fdfedfea5c34590",
-    "sizeBytes": 100914104
+    "url": "https://github.com/STREAMVANCE-STUDIO/streamvance-releases/releases/download/v0.7.83/STREAMVANCE-Studio-Setup-0.7.83.exe",
+    "sha256": "b503a29e2bc2ae2535e379a5832e8b2cb4abf8b37a7cd5e9e4c4664bd94a7a08",
+    "sizeBytes": 100915724
   }
 }
